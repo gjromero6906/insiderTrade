@@ -12,76 +12,78 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  padding:15px 40px;
+  width:auto;
+  max-width:1200px;
+  margin:auto;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#logo{
+  border-radius:50%;
+  width:clamp(40px, 6vw, 60px);
+  height:clamp(40px, 6vw, 60px);
+  object-fit:cover;
 }
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.logo-section{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+h1{
+  font-size:clamp(1.5rem, 3vw, 2.5rem);
+  margin:0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.menu {
+  position: relative;
+  display: inline-block;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.menu-icon {
+  font-size:clamp(24px, 4vw, 36px);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
+.menu-list {
+  position:absolute;
+  top:45px;
+  right:0;
+
+  background:white;
+  color:black;
+  list-style:none;
+
+  padding:10px 0;
+  margin:0;
+
+  border-radius:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  min-width:160px;
+
+  opacity:0;
+  transform:translateY(-10px);
+  pointer-events:none;
+
+  transition:opacity .2s ease, transform .2s ease;
+}
+.menu-list li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.menu-list li:hover {
+  background: #f3f3f3;
+}
+.menu:hover .menu-list {
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
